@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: tasksmith-postgres
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_USER: tasksmith
+      POSTGRES_PASSWORD: tasksmith
+      POSTGRES_DB: tasksmith
+    volumes:
+      - tasksmith_pgdata:/var/lib/postgresql/data
+
+volumes:
+  tasksmith_pgdata:
